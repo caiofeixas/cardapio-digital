@@ -1,0 +1,570 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+
+:root {
+    --cor-principal: #b63b23;
+    --cor-principal-escura: #8f2c19;
+    --cor-secundaria: #f1b94c;
+    --cor-fundo: #f7f2eb;
+    --cor-card: #ffffff;
+    --cor-texto: #26201c;
+    --cor-texto-claro: #746a64;
+    --cor-borda: #e8ddd3;
+    --cor-sucesso: #248b49;
+    --cor-whatsapp: #25d366;
+    --sombra: 0 15px 40px rgba(57, 39, 27, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 95px;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: "DM Sans", sans-serif;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* CABEÇALHO COM FAIXA */
+
+.cabecalho {
+    position: relative;
+    width: 100%;
+    margin-bottom: 92px;
+}
+
+.faixa-pratos {
+    position: relative;
+    width: 100%;
+    height: 390px;
+    overflow: hidden;
+    background-color: #2d1c14;
+}
+
+.faixa-pratos::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 12, 7, 0.72) 0%,
+            rgba(24, 12, 7, 0.28) 42%,
+            rgba(24, 12, 7, 0.12) 72%,
+            rgba(24, 12, 7, 0.3) 100%
+        );
+}
+
+.faixa-pratos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+}
+
+.perfil-restaurante {
+    position: absolute;
+    left: max(6%, calc((100% - 1280px) / 2));
+    bottom: -65px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 23px;
+    width: min(650px, calc(100% - 12%));
+    padding: 22px 28px;
+    background-color: rgba(255, 255, 255, 0.97);
+    border: 1px solid rgba(232, 221, 211, 0.85);
+    border-radius: 25px;
+    box-shadow: 0 18px 45px rgba(42, 24, 14, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.logo-restaurante {
+    width: 132px;
+    height: 132px;
+    flex-shrink: 0;
+    object-fit: contain;
+    padding: 10px;
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 22px;
+}
+
+.status {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 6px 12px;
+    color: var(--cor-sucesso);
+    background-color: rgba(36, 139, 73, 0.12);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.texto-restaurante h1 {
+    margin-bottom: 7px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(31px, 4vw, 45px);
+    line-height: 1.05;
+}
+
+.texto-restaurante > p {
+    color: var(--cor-texto-claro);
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.detalhes-restaurante {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin-top: 12px;
+    color: var(--cor-texto-claro);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* CATEGORIAS */
+
+.categorias {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 6%;
+    overflow-x: auto;
+    background-color: rgba(247, 242, 235, 0.95);
+    border-bottom: 1px solid var(--cor-borda);
+    backdrop-filter: blur(12px);
+    scrollbar-width: none;
+}
+
+.categorias::-webkit-scrollbar {
+    display: none;
+}
+
+.categorias a {
+    flex-shrink: 0;
+    padding: 11px 19px;
+    background-color: #fff;
+    border: 1px solid var(--cor-borda);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.categorias a:hover {
+    color: #fff;
+    background-color: var(--cor-principal);
+    border-color: var(--cor-principal);
+    transform: translateY(-2px);
+}
+
+/* CARDÁPIO */
+
+.secao-cardapio {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 75px 6%;
+}
+
+.secao-cardapio + .secao-cardapio {
+    padding-top: 20px;
+}
+
+.titulo-secao {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 32px;
+}
+
+.titulo-secao span {
+    color: var(--cor-principal);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+}
+
+.titulo-secao h2 {
+    margin-top: 6px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(34px, 4vw, 48px);
+}
+
+.titulo-secao > p {
+    max-width: 350px;
+    color: var(--cor-texto-claro);
+    line-height: 1.6;
+}
+
+.lista-produtos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card-produto {
+    overflow: hidden;
+    background-color: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(65, 45, 30, 0.06);
+    transition: 0.3s ease;
+}
+
+.card-produto:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--sombra);
+}
+
+.imagem-produto {
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+}
+
+.imagem-produto img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-produto:hover .imagem-produto img {
+    transform: scale(1.06);
+}
+
+.selo-produto {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 7px 12px;
+    color: #fff;
+    background-color: var(--cor-principal);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.informacoes-produto {
+    padding: 22px;
+}
+
+.informacoes-produto h3 {
+    font-size: 21px;
+}
+
+.informacoes-produto > p {
+    min-height: 68px;
+    margin: 12px 0 22px;
+    color: var(--cor-texto-claro);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.rodape-produto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.preco {
+    color: var(--cor-principal);
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.botao-pedir {
+    padding: 11px 19px;
+    color: #fff;
+    background-color: var(--cor-texto);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.botao-pedir:hover {
+    background-color: var(--cor-principal);
+    transform: translateY(-2px);
+}
+
+/* RODAPÉ */
+
+.rodape {
+    margin-top: 70px;
+    color: rgba(255, 255, 255, 0.72);
+    background-color: #211713;
+}
+
+.conteudo-rodape {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 45px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 60px 6%;
+}
+
+.conteudo-rodape h2 {
+    margin-bottom: 12px;
+    color: #fff;
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+}
+
+.conteudo-rodape h3 {
+    margin-bottom: 14px;
+    color: #fff;
+    font-size: 17px;
+}
+
+.conteudo-rodape p,
+.conteudo-rodape a {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.conteudo-rodape a {
+    display: block;
+    transition: color 0.2s ease;
+}
+
+.conteudo-rodape a:hover {
+    color: var(--cor-secundaria);
+}
+
+.redes-sociais {
+    display: flex;
+    flex-direction: column;
+}
+
+.direitos {
+    padding: 20px 6%;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.direitos p {
+    font-size: 13px;
+}
+
+/* WHATSAPP */
+
+.whatsapp-flutuante {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 14px 20px;
+    color: #fff;
+    background-color: var(--cor-whatsapp);
+    border-radius: 999px;
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
+    font-size: 15px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.whatsapp-flutuante:hover {
+    background-color: #1dac50;
+    transform: translateY(-4px);
+}
+
+.icone-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    color: var(--cor-whatsapp);
+    background-color: #fff;
+    border-radius: 50%;
+    font-size: 17px;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+    .faixa-pratos {
+        height: 340px;
+    }
+
+    .perfil-restaurante {
+        left: 5%;
+        width: min(650px, 90%);
+    }
+
+    .lista-produtos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .conteudo-rodape {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+    .cabecalho {
+        margin-bottom: 135px;
+    }
+
+    .faixa-pratos {
+        height: 250px;
+    }
+
+    .faixa-pratos img {
+        object-position: center;
+    }
+
+    .perfil-restaurante {
+        right: 15px;
+        bottom: -112px;
+        left: 15px;
+        align-items: flex-start;
+        width: auto;
+        gap: 15px;
+        padding: 17px;
+        border-radius: 20px;
+    }
+
+    .logo-restaurante {
+        width: 86px;
+        height: 86px;
+        padding: 7px;
+        border-radius: 17px;
+    }
+
+    .status {
+        margin-bottom: 6px;
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+
+    .texto-restaurante h1 {
+        margin-bottom: 5px;
+        font-size: 25px;
+    }
+
+    .texto-restaurante > p {
+        font-size: 13px;
+        line-height: 1.45;
+    }
+
+    .detalhes-restaurante {
+        flex-direction: column;
+        gap: 3px;
+        margin-top: 8px;
+        font-size: 10px;
+    }
+
+    .categorias {
+        justify-content: flex-start;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .secao-cardapio {
+        padding: 60px 15px;
+    }
+
+    .titulo-secao {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .lista-produtos {
+        grid-template-columns: 1fr;
+    }
+
+    .imagem-produto {
+        height: 240px;
+    }
+
+    .informacoes-produto > p {
+        min-height: auto;
+    }
+
+    .conteudo-rodape {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 50px 24px;
+    }
+
+    .direitos {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+
+    .whatsapp-flutuante {
+        right: 15px;
+        bottom: 15px;
+        width: 58px;
+        height: 58px;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .texto-whatsapp {
+        display: none;
+    }
+
+    .icone-whatsapp {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 420px) {
+    .cabecalho {
+        margin-bottom: 150px;
+    }
+
+    .faixa-pratos {
+        height: 220px;
+    }
+
+    .perfil-restaurante {
+        bottom: -128px;
+    }
+
+    .logo-restaurante {
+        width: 74px;
+        height: 74px;
+    }
+
+    .texto-restaurante h1 {
+        font-size: 22px;
+    }
+}
